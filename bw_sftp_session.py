@@ -48,11 +48,18 @@ class BwSftpSession(object):
     def __rshift__(self, relative_path):
         remote_file = self.remote_dir + '/' + relative_path
 
-        if not os.path.exists( self.local_dir):
+        if not os.path.exists(self.local_dir):
             os.makedirs(self.local_dir)
 
         local_file = self.local_dir + os.sep + relative_path
         self.sftp.get(remote_file, local_file)
+        
+    def __lshift__(self, relative_path):
+        local_file = self.local_dir + os.sep + relative_path
+        
+        remote_file = self.remote_dir + '/' + relative_path
+        self.sftp.put(local_file, remote_file)
+        
 
     def __exit__(self, exception_type, exception_val, exception_trace):
         self.sftp.close()

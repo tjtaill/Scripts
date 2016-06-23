@@ -2,7 +2,7 @@ import sys
 
 def delete_group_snap(snap_name):
     """
-    restores the running groups to a snapsot
+    deletes a snapshot for entire group
     """
     import virtualbox
     from running_groups import running_groups

@@ -64,8 +64,8 @@ deploy.nds.buildid=$rel.$build
 
 # DEVIP setup (Your local machine possibly running S-CSCF & HSS, Web Browser) 
 deploy.dev.ip=10.9.55.11
+deploy.dev.port=5070
 deploy.farmname=xspfarm
-
 """)
         
     build_properties_file_contents = build_properties_template.substitute({'build': build, 'rel' : rel}) 
@@ -73,7 +73,8 @@ deploy.farmname=xspfarm
         build_properties_file.write(build_properties_file_contents)
     
     
-    cmd = ' '.join(['cd C:\\svn\\trunk\\BUILD\\dev\\XS\\virtualenv', 
+    cmd = ' '.join(['cd C:\\svn\\trunk\\BUILD\\dev\\XS\\virtualenv',
+            '&', 'rmdir /s /q staging',
             '&', 'C:\\cygwin\\bin\\sh.exe xsGenDF.sh', 
             '&', 'copy /y NSDF-personal.txt staging',
             '&', 'copy /y PSDF-personal.txt staging',
