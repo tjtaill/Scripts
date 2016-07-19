@@ -22,6 +22,7 @@ if __name__ == "__main__":
         xscli << "set realm TestRealm"
         xscli << "set listeningAddress %s" % xs_ip
         xscli << "set listeningPort 3868"
+        xscli << "set customDiameterVendorId 12951"
         xscli << "Peers;"
         xscli << "add rf.server.mtl.broadsoft.com 8000 true ipAddress %s" % dev_ip
         xscli << "qa;Applications;ExecutionDataless;Logging;InputChannels;"

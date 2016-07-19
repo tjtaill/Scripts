@@ -6,9 +6,11 @@ from getpass import getpass
 
 _user = 'ttaillefer'
 
-def svn_copy(source, destination, passwd):
-    
+def svn_copy(source, destination, passwd):    
     os.system('svn copy %s %s --username %s --password %s -m "create branch"' % (source,destination,_user,passwd)) 
+
+def svn_mkdir(path, passwd):
+    os.system('svn mkdir %s --username %s --password %s -m "create folder"' % (path, _user, passwd)) 
 
 if __name__ == "__main__":
     """
@@ -26,6 +28,7 @@ if __name__ == "__main__":
     svn_source = _svn_base + sys.argv[1] + '/'
     svn_target = _svn_working + sys.argv[2] + '/'
     
+    svn_mkdir(svn_target, passwd)
     svn_copy(svn_source + 'BASE', svn_target + 'BASE', passwd)
     svn_copy(svn_source + 'BUILD', svn_target + 'BUILD', passwd)
     svn_copy(svn_source + 'SHARE', svn_target + 'SHARE', passwd)
