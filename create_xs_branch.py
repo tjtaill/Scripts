@@ -10,7 +10,7 @@ def svn_copy(source, destination, passwd):
     os.system('svn copy %s %s --username %s --password %s -m "create branch"' % (source,destination,_user,passwd)) 
 
 def svn_mkdir(path, passwd):
-    os.system('svn mkdir %s --username %s --password %s -m "create folder"' % (path, _user, passwd)) 
+    os.system('svn mkdir %s --parents --username %s --password %s -m "create folder"' % (path, _user, passwd)) 
 
 if __name__ == "__main__":
     """
