@@ -1,4 +1,3 @@
-
 def progress_bar(minutes):
     from time import sleep
     from tqdm import tqdm
@@ -12,6 +11,9 @@ def vm_progress_bar():
     
 def group_progress_bar():
     progress_bar(7)
+    
+def restart_progress_bar():
+    progress_bar(2)
 
 if __name__ == "__main__":
     progress_bar(1)
